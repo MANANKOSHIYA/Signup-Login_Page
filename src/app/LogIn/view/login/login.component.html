@@ -1,0 +1,55 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="form">
+                    <form [formGroup]="loginForm">
+                        <div class="mb-3">
+                            <!-- <label for="email" class="from-label text-black">Email <span>*</span></label> -->
+                            <input class="form-control" formControlName="email" placeholder="example@example.com"
+                                type="email" name="email" id="email" />
+                            <div class="error-messages">
+                                <ng-container *ngFor="let error of error_messages.email">
+                                    <div class="error-message"
+                                        *ngIf="loginForm.get('email')?.hasError(error.type) && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <!-- <label for="password" class="from-label text-black">Password <span>*</span></label> -->
+                            <input class="form-control" formControlName="password" placeholder="password" type="text"
+                                name="password" id="password" />
+                                <div class="error-messages">
+                                    <ng-container *ngFor="let error of error_messages.password">
+                                        <div class="error-message"
+                                            *ngIf="loginForm.get('password')?.hasError(error.type) && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                        </div>
+                        <div class="accordion-body text-center my-3">
+                            <div class="order-btn" style="cursor: pointer;">
+                                <button class="btn btn-primary" data-bs-dismiss="modal" (click)="Onlogin()">Log In</button>
+                            </div>
+                        </div>
+                        <div class="accordion-body text-center my-3">
+                            <h6>Create account <a routerLink="/signup">Sign Up</a> </h6>
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- <div *ngFor="let a of getUserData">
+                    {{a.firstName}} <br> {{a.lastName}}<br>{{a.mobile}}<br> {{a.email}}<br> {{a.password}}
+                </div> -->
+                
+            </div>
+        </div>
+    </div>
+</section>

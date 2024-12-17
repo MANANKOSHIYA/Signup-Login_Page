@@ -1,0 +1,130 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="form">
+                    <form [formGroup]="loginForm">
+
+                        <!-- first name -->
+                        <div class="mb-3">
+                            <!-- <label for="FirstName" class="from-label text-black mb-1">Fisrt Name <span>*</span></label> -->
+                            <input class="form-control" formControlName="fname" placeholder="First Name" type="text"
+                                name="FirstName" id="FirstName" />
+                            <div class="error-messages">
+                                <ng-container *ngFor="let error of error_messages.fname">
+                                    <div class="error-message"
+                                        *ngIf="loginForm.get('fname')?.hasError(error.type) && (loginForm.get('fname')?.dirty || loginForm.get('fname')?.touched)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- last name -->
+                        <div class="mb-3">
+                            <!-- <label for="LastName" class="from-label text-black">Last Name <span>*</span></label> -->
+                            <input class="form-control" formControlName="lname" placeholder="Last Name" type="text"
+                                name="LastName" id="LastName" />
+                            <div class="error-messages">
+                                <ng-container *ngFor="let error of error_messages.lname">
+                                    <div class="error-message"
+                                        *ngIf="loginForm.get('lname')?.hasError(error.type) && (loginForm.get('lname')?.dirty || loginForm.get('lname')?.touched)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- number -->
+
+                        <div class="mb-3">
+                            <!-- <label for="MobileNo" class="from-label text-black">Moblie Number <span>*</span></label> -->
+                            <input class="form-control" formControlName="mobileNo" placeholder="Mobile Number"
+                                type="text" name="MobileNo" id="MobileNo" />
+                            <div class="error-messages">
+                                <ng-container *ngFor="let error of error_messages.mobileNo">
+                                    <div class="error-message"
+                                        *ngIf="loginForm.get('mobileNo')?.hasError(error.type) && (loginForm.get('mobileNo')?.dirty || loginForm.get('mobileNo')?.touched)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <!-- <div class="error-message" *ngIf="loginForm.get('mobileNo')?.hasError('invalidMobileNumber') && loginForm.get('mobileNo')?.touched">
+                                Mobile Number must be a 10-digit number.
+                              </div> -->
+                        </div>
+
+                        <!-- <div class="mb-3">
+                            <label for="mobileNo" class="from-label text-black">Mobile Number <span>*</span></label>
+                            <input class="form-control" formControlName="MobileNo" placeholder="Mobile Number"
+                                type="text" name="mobileNo" id="mobileNo" />
+                            <div *ngIf="UsersForm.get('MobileNo')?.hasError('required') && UsersForm.get('MobileNo')?.touched"
+                                class="text-danger">
+                                Mobile Number is required.
+                            </div>
+                            <div *ngIf="UsersForm.get('MobileNo')?.hasError('invalidMobileNumber') && UsersForm.get('MobileNo')?.touched"
+                                class="text-danger">
+                                Mobile Number must be a 10-digit number.
+                            </div>
+                        </div> -->
+
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <!-- <label for="email" class="from-label text-black">Email <span>*</span></label> -->
+                            <input class="form-control" formControlName="email" placeholder="example@example.com"
+                                type="email" name="email" id="email" />
+                            <div class="error-messages">
+                                <ng-container *ngFor="let error of error_messages.email">
+                                    <div class="error-message"
+                                        *ngIf="loginForm.get('email')?.hasError(error.type) && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <!-- <label for="password" class="from-label text-black">Password <span>*</span></label> -->
+                            <input class="form-control" formControlName="password" placeholder="Password" type="text"
+                                name="password" id="password" />
+                            <div class="error-messages">
+                                <ng-container *ngFor="let error of error_messages.password">
+                                    <div class="error-message"
+                                        *ngIf="loginForm.get('password')?.hasError(error.type) && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- Comfirm Password -->
+                        <div class="mb-3">
+                            <!-- <label for="confirmpassword" class="from-label text-black">Confirm Password<span>*</span></label> -->
+                            <input class="form-control" formControlName="confirmpassword" placeholder="Confirm Password"
+                                type="text" name="confirmpassword" id="confirmpassword" />
+                            <div class="error-messages">
+                                <ng-container *ngFor="let error of error_messages.confirmpassword">
+                                    <div class="error-message"
+                                        *ngIf="loginForm.get('confirmpassword')?.hasError(error.type) && (loginForm.get('confirmpassword')?.dirty || loginForm.get('confirmpassword')?.touched)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="accordion-body text-center my-3">
+                            <div class="order-btn">
+                                <button class="btn btn-primary" data-bs-dismiss="modal"
+                                    (click)="OnSubmit()">Submit</button> <!-- [disabled]="UsersForm.invalid"  -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+</section>

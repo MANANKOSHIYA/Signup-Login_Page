@@ -1,0 +1,11 @@
+<p>otpgenerator works!</p>
+
+
+<div>
+  <input type="text" [(ngModel)]="phoneNumber" placeholder="Enter Phone Number">
+  <button (click)="sendOtp()">Send OTP</button>
+</div>
+<div *ngIf="generatedOtp">
+  <input type="text" [(ngModel)]="otp" placeholder="Enter OTP">
+  <button (click)="verifyOtp()">Verify OTP</button>
+</div>
